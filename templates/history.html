@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history_style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('services') }}">Services</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <h1>History</h1>
+    <form method="POST" action="{{ url_for('delete_history') }}" onsubmit="return confirmDate()">
+        <button class="dlt-btn"> Delete History</button>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Algorithm</th>
+                <th>Parameters</th>
+                <th>Uploaded File</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in history_records %}
+            <tr>
+                <td>{{ record['date'] }}</td>
+                <td>{{ record['algorithm'] }}</td>
+                <td>{{ record['parameters'] }}</td>
+                <td><a href="{{ url_for('static', filename='uploads/' + record['file_path'].split('uploads/')[-1]) }}" download>Download</a></td>
+                <td><a href="{{ url_for('static', filename=record['result_path'].split('static/')[-1]) }}" download>Download</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <footer>
+        <p>&copy; 2024 DataInsight. All rights reserved.</p>
+    </footer>
+    <script>
+        function confirmDate() {
+            return confirm("Are you sure you want to delete the history?");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algorithm Result</title>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/result_style.css') }}">
+
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}"> Back To Home</a> <br>
+        <a href="{{ url_for('services') }}"> Back To Services</a> <br>
+        </div>
+    <h1>Algorithm Result</h1>
+    <img src="{{ plot_url }}" alt="Algorithm Result Plot">
+    <a href="{{ plot_url }}" download class="download-button">Download Results</a>
+    <footer>
+        <p>&copy; 2024 DataInsight. All rights reserved.</p>
+    </footer>
+</body>
+</html>
