@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f2e9e2;
+    font-family: monospace;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin:20px;
+    align-items: center;
+    color:#4a4e69;
+    font-size: 2rem;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4a4e69;
+}
+
+.navbar a{
+    color: #F2E9E4;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+a:hover{
+    color: #C9ADA7;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+}
+
+a.download-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: #4a4e69;
+    color: #F2E9E4;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 300px; /* Ensure the button does not take the whole width */
+}
+
+/* Hover effect for the download button */
+a.download-button:hover {
+    background-color: #C9ADA7;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus effect for the download button */
+a.download-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(201, 173, 167, 0.5);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #4a4e69; /* Add a background color to distinguish the footer */
+    color: #F2E9E4; /* Add text color for better visibility */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow for better separation */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        margin: 5px 0;
+    }
+
+    img{
+        min-width:100px;
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,76 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2e9e2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    color: #4a4e69;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #4a4e69;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #4a4e69;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    background-color: #4a4e69;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #C9ADA7;
+}
+
+a {
+    color: #4a4e69;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+a:hover {
+    color: #C9ADA7;
+}

@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f2e9e2;
+    font-family: monospace;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+    align-items: center;
+    color:#4a4e69;
+    font-size: 2rem;
+}
+h2,h4{
+    color:#9A8C98;
+    font-size: 1.5rem;
+    margin: 20px;
+}
+h3{
+   color:#4A4E69;
+    font-size: 1.5rem;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    padding-left:100px;
+    margin-top: 20px;
+    background-color: #4a4e69;
+}
+
+.navbar a{
+    color: #F2E9E4;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+a:hover{
+    color: #C9ADA7;
+}
+
+.pick-alg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 20px;
+    padding:10px;
+}
+.pick-alg label{
+    margin:20px;
+}
+.pick-alg button{
+    margin:20px;
+}
+#choose{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4a4e69;
+    font-size: 1.5rem;
+    margin: 20px;
+    padding-left:20px;
+}
+select#algorithm-options {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #4a4e69;
+    background-color: #f2e9e2;
+    border: 2px solid #4a4e69;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none; /* Remove default dropdown arrow for Safari */
+    -moz-appearance: none; /* Remove default dropdown arrow for Firefox */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%234a4e69" d="M2 0L0 2h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+/* Style for the dropdown options */
+select#algorithm-options option {
+    background-color: #f2e9e2;
+    color: #4a4e69;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+/* Hover effect for the dropdown menu */
+select#algorithm-options:hover {
+    border-color: #C9ADA7;
+}
+
+/* Focus effect for the dropdown menu */
+select#algorithm-options:focus {
+    outline: none;
+    border-color: #C9ADA7;
+    box-shadow: 0 0 10px rgba(201, 173, 167, 0.5);
+}
+
+button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4a4e69;
+    color: #F2E9E4;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the Launch button */
+button:hover {
+    background-color: #C9ADA7;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus effect for the Launch button */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(201, 173, 167, 0.5);
+}
+
+label{
+    color: #4a4e69;
+    font-size: 1.2rem;
+    margin: 20px;
+}
+
+ul{
+    list-style-type:decimal;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 20px;
+    font-size: 1.2rem;;
+}
+
+form {
+    display: flex;
+    justify-content:end;
+    flex-direction: column;
+    align-items:flex-start;
+    margin: 20px;
+}
+
+/* Style for the form labels */
+label {
+    color: #4a4e69;
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+}
+
+/* Style for the form inputs */
+input[type="text"],
+input[type="file"],
+select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #4a4e69;
+    background-color: #f2e9e2;
+    border: 2px solid #4a4e69;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.error-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.error-popup button {
+    background-color: #721c24;
+    color: #f8d7da;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    form {
+        align-items: center;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    select {
+        max-width: 100%;
+    }
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #4a4e69; /* Add a background color to distinguish the footer */
+    color: #F2E9E4; /* Add text color for better visibility */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow for better separation */
+}
