@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataInsight</title>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/services_style.css') }}">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .hidden-error{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>DataInsight: Big Data Analytics Services</h1>
+    <div class="navbar">
+    <a href="{{ url_for('home') }}">Home</a> <br>
+    <a href="{{ url_for('services') }}">Services</a> <br>
+    <a href="{{ url_for('history') }}">History</a> <br>
+    <a href="{{ url_for('login') }}">Login</a><br>
+    </div>
+
+    <h1>Services</h1>
+    <p id="choose"> Choose an algorithm and follow the instructions. To access the history, please login or create an account.</p>
+    <div class="pick-alg">
+    <label for="algorithm-options">Choose an algorithm:</label>
+    <select id="algorithm-options" name="algorithm" >
+        <option value="" disabled selected>Select an algorithm</option>
+        <option value="bfr">Clustering- BFR</option>
+        <option value="pcy">Association Rule Mining-PCY </option>
+        <option value="winnow">Classification- Winnow</option>
+    </select>
+    <button onclick="launchAlgorithm()">Launch</button> </div>
+    
+    <div id="algorithm-content">
+        <h2 id="algorithm-title"></h2>
+        <form id="algorithm-form" action="/run_algorithms" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input type="hidden" id="selected-algorithm" name="algorithm">
+            <div id="bfr-upload" class="hidden">
+                <h3>Instructions</h3>
+                <ul>
+                    <li>Upload your data file in CSV format.</li>
+                    <li>Enter the desired parameters for the algorithm. Threshold represents the maximum distance between two points to be considered in a cluster. Enter the two column names you want to apply the algorithm on, separated by a comma. Spaces within column names are allowed.</li>
+                    <li>Click the "Run" button to execute the algorithm.</li>
+                </ul>
+                <label for="bfr-file">Upload your data (csv file):</label>
+                <input type="file" id="bfr-file" name="bfr-file" accept=".csv"><br>
+                <label for="bfr-threshold">Enter the threshold:</label>
+                <input type="number" id="bfr-threshold" name="bfr-threshold" min="0" value="0"><br>
+                <label for="clusters">Enter the Number of clusters:</label>
+                <input type="number" id="clusters" name="clusters" min="1" value="1"><br>
+                <label for="columns">Enter the two columns separated by comma:</label>
+                <input type="text" id="columns" name="columns"> 
+                <button type="submit">Run</button>
+            </div>
+            <div id="pcy-upload" class="hidden">
+                <h3>Instructions</h3>
+                <ul>
+                    <li>Upload your data file in CSV format.</li>
+                    <li>Enter the desired parameters for the algorithm. Itemsize represents the number of combinations you want (pair, triple,..). Support factor represents the value of frequency.</li>
+                    <li>Click the "Run" button to execute the algorithm.</li>
+                </ul>
+                <label for="pcy-file">Upload your data (csv file):</label>
+                <input type="file" id="pcy-file" name="pcy-file" accept=".csv"><br>
+               <!-- <label for="pcy-itemsize">Enter the Item size(2-5):</label>
+                <input type="text" id="pcy-itemsize" name="pcy-itemsize">-->
+                <!--<label for="support">Enter the support factor(between 0 and 1):</label>
+                <input type="text" id="support" name="support"> -->
+                <label for="column">Enter the target column:</label>
+                <input type="text" id="column" name="column">
+                <button type="submit">Run</button>
+            </div>
+            <div id="winnow-upload" class="hidden">
+                <h3>Instructions</h3>
+                <ul>
+                    <li>Upload your feature file in CSV format.</li>
+                    <li>Upload your label file in CSV format.</li>
+                    <li>Click the "Run" button to execute the algorithm.</li>
+                </ul>
+                <label for="winnow-feature-file">Upload your feature data (csv file):</label>
+                <input type="file" id="winnow-feature-file" name="winnow-feature-file" accept=".csv"> <br>
+                <label for="winnow-label-file">Upload your label data (csv file):</label>
+                <input type="file" id="winnow-label-file" name="winnow-label-file" accept=".csv">
+                <button type="submit">Run</button>
+            </div>
+        </form>
+    </div>
+    <div id="error-popup" class="error-popup">
+        <p id="error-message"></p>
+        <button onclick="closeErrorPopup()">Close</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/services.js') }}"> </script>
+    <footer>
+        <p>&copy; 2024 DataInsight. All rights reserved.</p>
+    </footer>
+</body>
+</html>
