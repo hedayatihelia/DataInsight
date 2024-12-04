@@ -1,0 +1,21 @@
+Install requirements in vscode terminal:
+pip install -r requirements.txt
+
+** YOU CAN DELETE THE database.db FILE AS IT GENERATES A NEW DB FILE IF THERE ISN'T ONE ALREADY
+** You can also group different pages (login.html, register.html etc) in a single page if you want but you will need to do fast changes in the app.py file.
+
+--Install Docker Desktop before running Docker commands and make sure it is running in the background
+Build Docker image:
+docker build -t my-flask-app .
+
+Run Docker image:
+docker run -d -p 5000:5000 my-flask-app
+
+Verify docker runtime:
+docker ps
+
+Run the app after all steps:
+python app.py
+
+Access the website:
+http://localhost:5000/index
