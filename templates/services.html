@@ -18,7 +18,12 @@
     <a href="{{ url_for('home') }}">Home</a> <br>
     <a href="{{ url_for('services') }}">Services</a> <br>
     <a href="{{ url_for('history') }}">History</a> <br>
-    <a href="{{ url_for('login') }}">Login</a><br>
+    {% if 'user_id' in session %}
+            <a href="{{ url_for('logout') }}">Logout</a><br>
+    {% else %}
+            <a href="{{ url_for('login') }}">Login</a><br>
+    {% endif %}
+   
     </div>
 
     <h1>Services</h1>
