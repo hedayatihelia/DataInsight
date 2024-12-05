@@ -1,2 +1,7 @@
 Flask
 Werkzeug
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
