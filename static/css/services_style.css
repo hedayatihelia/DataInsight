@@ -172,6 +172,7 @@ label {
 /* Style for the form inputs */
 input[type="text"],
 input[type="file"],
+input[type="number"],
 select {
     width: 100%;
     max-width: 300px;
