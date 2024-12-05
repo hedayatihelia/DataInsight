@@ -237,7 +237,7 @@ def run_algorithms():
             
         data = pd.read_csv(data_file_path)
         data = pd.read_csv(data_file_path)
-         data.columns = data.columns.str.strip()  # Strip whitespace from DataFrame column names
+        data.columns = data.columns.str.strip()  # Strip whitespace from DataFrame column names
         if target_col_name not in data.columns:
             return render_template('error.html', message="Column name must exist in the dataset.")
         frequent_itemsets=pcy.PCY(data, target_col_name)
