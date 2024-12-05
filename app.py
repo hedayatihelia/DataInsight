@@ -226,11 +226,20 @@ def run_algorithms():
         return render_template('result.html', plot_url=plot_path)
     
     elif algorithm == 'pcy':
+        if 'pcy-file' not in request.files or request.files['pcy-file'].filename == '':
+            return render_template('error.html', message="Data file is required.")
         data_file = request.files['pcy-file']
         data_file_path = os.path.join('uploads', data_file.filename)
         data_file.save(data_file_path)
         target_col_name=request.form['column']
+        if target_col_name == '':
+            return render_template('error.html', message="Columns field is required.")
+            
         data = pd.read_csv(data_file_path)
+        data = pd.read_csv(data_file_path)
+         data.columns = data.columns.str.strip()  # Strip whitespace from DataFrame column names
+        if target_col_name not in data.columns:
+            return render_template('error.html', message="Column name must exist in the dataset.")
         frequent_itemsets=pcy.PCY(data, target_col_name)
         items=list(frequent_itemsets.keys())
         item_labels = ['\n'.join(item) for item in items]
@@ -256,6 +265,10 @@ def run_algorithms():
         
         return render_template('result.html', plot_url=plot_path)
     elif algorithm == 'winnow':
+        if 'winnow-feature-file' not in request.files or request.files['winnow-feature-file'].filename == '':
+            return render_template('error.html', message="Data file is required.")
+        if 'winnow-label-file' not in request.files or request.files['winnow-label-file'].filename == '':
+            return render_template('error.html', message="Data file is required.")
         data_x=request.files['winnow-feature-file']
         data_y=request.files['winnow-label-file']
         data_x_path = os.path.join('uploads', data_x.filename)
